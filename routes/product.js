@@ -3,6 +3,7 @@ const { upload, processAndUploadImage } = require('../milldewares/cloudinary');
 const { v4: uuidv4 } = require('uuid');
 const { ProductDetail } = require('../models/products');
 const productRouter = express.Router()
+productRouter.get('/', async(req, res)=>res.send('<h1>Hi there</h1>'))
 productRouter.post('/', upload, processAndUploadImage, async (req, res) => {
   if (!req.processedImage) {
     return res.status(400).send({ error: "Profile Image required" });
